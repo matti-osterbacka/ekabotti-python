@@ -1,12 +1,12 @@
 import discord
+import os
 from dotenv import dotenv_values
-from operator import itemgetter, attrgetter
 from datetime import datetime, date, time, timezone, timedelta
 
 config = dotenv_values()
-logging_channel_id = int(config.get("LOGGING_CHANNEL_ID"))
-posting_channel_id = int(config.get("POSTING_CHANNEL_ID"))
-token = str(config.get("DISCORD_TOKEN"))
+logging_channel_id = int(os.environ.get("LOGGING_CHANNEL_ID"))
+posting_channel_id = int(os.environ.get("POSTING_CHANNEL_ID"))
+token = str(os.environ.get("DISCORD_TOKEN"))
 
 intents = discord.Intents.default()
 intents.message_content = True
