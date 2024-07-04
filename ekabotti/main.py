@@ -30,7 +30,8 @@ async def on_ready():
     #write_first_into_file(first_message)
     #await channel2.send(read_stats_from_file(first_message, channel2.members))
     #print(read_stats_from_file(first_message, channel.members))
-    print(await get_statistics_from_logging_channel(first_message, channel.members))
+    statistics = await get_statistics_from_logging_channel(first_message, channel.members)
+    await channel.send(statistics)
     quit()
 
 async def fetch_first_message(test, channel):
