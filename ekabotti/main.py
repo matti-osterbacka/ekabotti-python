@@ -34,7 +34,7 @@ async def on_ready():
     quit()
 
 async def fetch_first_message(test, channel):
-    dt = datetime.combine(date=date.today(), time=time.min).astimezone(tz=timezone(timedelta(hours=2), 'Europe/Helsinki'))
+    dt = datetime.combine(date=date.today(), time=time.min).astimezone(tz=timezone(timedelta(hours=5), 'Europe/Helsinki'))
     print(dt.now())
     if test:
         dt = datetime.combine(date=date.fromisoformat("2024-06-18"), time=time.min).astimezone(tz=timezone(timedelta(hours=2), 'Europe/Helsinki'))
