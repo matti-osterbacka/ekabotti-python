@@ -31,7 +31,7 @@ async def on_ready():
     #await channel2.send(read_stats_from_file(first_message, channel2.members))
     #print(read_stats_from_file(first_message, channel.members))
     print(await get_statistics_from_logging_channel(first_message, channel.members))
-   # quit()
+    quit()
 
 async def fetch_first_message(test, channel):
     dt = datetime.combine(date=date.today(), time=time.min).astimezone(tz=timezone(timedelta(hours=2), 'Europe/Helsinki'))
