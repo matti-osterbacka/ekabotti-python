@@ -42,6 +42,7 @@ async def fetch_first_message(test, channel):
     while first_message is None:
         async for message in channel.history(after=dt, limit=1):
             first_message = message
+    print(first_message.created_at)
     return first_message
         
 
