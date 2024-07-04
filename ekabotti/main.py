@@ -34,10 +34,10 @@ async def on_ready():
     quit()
 
 async def fetch_first_message(test, channel):
-    dt = datetime.combine(date=date.today(), time=time.min).astimezone(tz=timezone(timedelta(hours=0), 'Europe/Helsinki'))
+    dt = datetime.combine(date=date.today(), time=time.min).astimezone(tz=timezone(timedelta(hours=-4), 'Europe/Helsinki'))
     print(dt)
     if test:
-        dt = datetime.combine(date=date.fromisoformat("2024-06-18"), time=time.min).astimezone(tz=timezone(timedelta(hours=0), 'Europe/Helsinki'))
+        dt = datetime.combine(date=date.fromisoformat("2024-06-18"), time=time.min).astimezone(tz=timezone(timedelta(hours=-4), 'Europe/Helsinki'))
     first_message = None
     while first_message is None:
         async for message in channel.history(after=dt, limit=1):
