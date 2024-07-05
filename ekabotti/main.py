@@ -85,7 +85,8 @@ async def get_statistics_from_logging_channel(first_message, members):
         s.append(message.content)
     r = "EKA oli " + first_message.author.display_name + "\n\n"
     for member in members:
-        r+= member.display_name + "|" + str(s.count(str(member.id))) + "\n"
+        if s.count(str(member.id)) > 0:
+            r+= member.display_name + " | " + str(s.count(str(member.id))) + "\n"
     return r
 
 
