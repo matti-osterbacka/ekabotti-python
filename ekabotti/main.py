@@ -7,7 +7,7 @@ config = dotenv_values()
 logging_channel_id = int(os.environ.get("LOGGING_CHANNEL_ID"))
 posting_channel_id = int(os.environ.get("POSTING_CHANNEL_ID"))
 token = str(os.environ.get("DISCORD_TOKEN"))
-
+dstbool = str(os.environ.get("dstbool"))
 intents = discord.Intents.default()
 intents.message_content = True
 intents.members = True
@@ -35,10 +35,13 @@ async def on_ready():
     quit()
 
 async def fetch_first_message(test, channel):
-    dt = datetime.combine(date.today(), time=time(hour=21)).astimezone(tz=timezone(timedelta(hours=2), 'Europe/Helsinki'))
+    if dstbool == "True":
+        dt = datetime.combine(date.today(), time=time(hour=21)).astimezone(tz=timezone(timedelta(hours=3), 'Europe/Helsinki'))
+    else:
+        dt = datetime.combine(date.today(), time=time(hour=21)).astimezone(tz=timezone(timedelta(hours=2), 'Europe/Helsinki'))
     print(dt)
     if test:
-        dt = datetime.combine(date=date.fromisoformat("2024-06-18"), time=time.min).astimezone(tz=timezone(timedelta(hours=2), 'Europe/Helsinki'))
+        dt = datetime.combine(date=date.fromisoformat("2024-06-18"), time=time.min).astimezone(tz=timezone(timedelta(hours=3), 'Europe/Helsinki'))
     first_message = None
     while first_message is None:
         async for message in channel.history(after=dt, limit=1):
