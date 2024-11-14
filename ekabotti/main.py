@@ -2,7 +2,7 @@ import discord
 import os
 from dotenv import dotenv_values
 from datetime import datetime, date, time, timezone, timedelta
-
+import time as time2
 config = dotenv_values()
 logging_channel_id = int(os.environ.get("LOGGING_CHANNEL_ID"))
 posting_channel_id = int(os.environ.get("POSTING_CHANNEL_ID"))
@@ -30,6 +30,7 @@ async def on_ready():
     #write_first_into_file(first_message)
     #await channel2.send(read_stats_from_file(first_message, channel2.members))
     #print(read_stats_from_file(first_message, channel.members))
+    time2.sleep(3)
     statistics = await get_statistics_from_logging_channel(first_message, channel.members)
     await channel.send(statistics)
     quit()
