@@ -81,7 +81,7 @@ async def message_first_to_logging_channel(first_message):
 async def get_statistics_from_logging_channel(first_message, members):
     channel = await client.fetch_channel(logging_channel_id)
     s = []
-    async for message in channel.history():
+    async for message in channel.history(limit=9001):
         s.append(message.content)
     r = "EKA oli " + first_message.author.display_name + "\n\n"
     for member in members:
